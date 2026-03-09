@@ -1,5 +1,10 @@
+// define pin number
+const int PIN = 8;
+
 // define note frequencies
 // reference: https://mixbutton.com/music-tools/frequency-and-pitch/music-note-to-frequency-chart
+// note: frequencies are slightly rounded, sorry if you have perfect pitch
+
 #define C3  131
 #define D3  147
 #define E3  165
@@ -44,23 +49,24 @@
 #define AS5 932
 
 // define note durations
-// bpm to ms converter: https://tuneform.com/tools/time-tempo-bpm-to-milliseconds-ms
-// currently 110 BPM
-#define W  2180 // whole note
-#define H  1090 // half note
-#define Q  545 // quarter note
-#define E  273 // eighth note
-#define S  136 // sixteenth notes
 
+#define BPM 110 // Change this
 
-// Fire Emblem Main Theme
+#define Q (60000 / BPM) // quarter note
+#define H (Q * 2)       // half note
+#define W (Q * 4)       // whole note
+#define E (Q / 2)       // eighth note
+#define S (Q / 4)       // sixteenth note
+
+// default: Fire Emblem Main Theme
 int melody[] = {
-  A3, D4, FS4, FS4, B3, B3, CS4, D4, E4, D4, CS4, A3, D4, FS4, A4, G4, FS4, B3, CS4, D4, E4, E4
+  A3, D4, FS4, FS4, B3, B3, CS4, D4, E4, D4, CS4, A3, D4, FS4, A4, G4, FS4, B3, CS4, D4, E4, E4 // change this
   }; 
 
 // note durations can be added together for legato
+// corresponds with the same index note in melody[]
 int durations[] = {
-  H, Q, Q, H, H, H+E, E, E, E, H, H, H, Q, Q, H, Q, Q, H+E, E, E, E, W
+  H, Q, Q, H, H, H+E, E, E, E, H, H, H, Q, Q, H, Q, Q, H+E, E, E, E, W // change this
 }; 
 
 int notes = sizeof(melody) / sizeof(melody[0]); // get the number of notes for loop
@@ -70,9 +76,9 @@ void setup() {
 
 void loop() {
   for (int i = 0; i < notes; i++) {
-    tone(8, melody[i], durations[i]);
+    tone(PIN, melody[i], durations[i]);
     delay(durations[i] * 1.1);
   }
-  noTone(8);
+  noTone(PIN);
   delay(1000);
   }
