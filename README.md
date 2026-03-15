@@ -1,5 +1,4 @@
 # arduino-projects
-Small Arduino experiments for fun/learning.
 
 ## Projects
 | Project | Description | Date |
