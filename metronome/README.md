@@ -1,6 +1,9 @@
 # Metronome
 An Arduino metronome with a knob for BPM and IR remote for start/stop.
 
+## Demo
+[Demo video](https://youtu.be/4xl-vEYMi6w)
+
 ## Hardware
 - UNO R3
 - Active buzzer
