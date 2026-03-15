@@ -24,8 +24,8 @@ All other pins to 5V or GND
 
 ## Setup
 1. Install the above libraries in the Arduino IDE
-2. Upload `ir-remote-setup.ino` and follow the instructions
-4. Update the button defines at the top of `metronome.ino`
+2. Upload [IR-remote-setup.ino](IR_remote_setup) and follow the instructions
+4. Open [metronome.ino](metronome) and update the button defines at the top
 5. Upload `metronome.ino`
 
 ## Notes
